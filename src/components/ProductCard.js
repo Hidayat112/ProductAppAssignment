@@ -1,0 +1,44 @@
+import React from 'react';
+import { View, Text, Image, StyleSheet, Pressable } from 'react-native';
+import { ROUTES } from '../utils/constants';
+
+const ProductCard = ({ item,navigation}) => {
+    return (
+        <Pressable style={styles.productItem}
+            onPress={() => navigation.navigate(ROUTES.PRODUCT_DETAILS, { product: item })}
+        >
+            <Image source={{ uri: item.image }} style={{ width: 100, height: 100, borderRadius: 10 }} />
+            <Text>{item.title}</Text>
+            <View style={styles.productItemPriceContainer}>
+                <Text>{`AED ${item.price}`}</Text>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <Text>{`★${item.rating.rate}`}</Text>
+                </View>
+            </View>
+        </Pressable>
+    );
+}
+
+const styles = StyleSheet.create({
+    productItem: {
+        flex: 1,
+        borderWidth: 1,
+        borderColor: 'gray',
+        padding: 10,
+        margin: 5,
+        borderRadius: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#f0f0f0'
+    },
+    productItemPriceContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginTop: 10,
+        width: '100%'
+    }
+})
+
+
+export default ProductCard;

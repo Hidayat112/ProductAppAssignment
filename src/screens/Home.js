@@ -5,41 +5,9 @@ import { fetchProducts } from '../state/slices/productSlices';
 import ScreenView from '../components/ScreenView';
 import { ROUTES, BANNER_DATA } from '../utils/constants';
 import Header from '../components/Header';
-const { width } = Dimensions.get('window');
-const Banner = () => {
-    const flatListRef = useRef(null);
-    const [currentIndex, setCurrentIndex] = useState(0);
+import ProductCard from '../components/ProductCard';
+import Banner from '../components/Banner';
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % BANNER_DATA.length);
-        }, 3000); 
-
-        return () => clearInterval(interval);
-    }, []);
-
-    useEffect(() => {
-        if (flatListRef.current) {
-            flatListRef.current.scrollToIndex({ index: currentIndex, animated: true });
-        }
-    }, [currentIndex]);
-    return (
-        <FlatList
-            ref={flatListRef}
-            data={BANNER_DATA}
-            pagingEnabled={true}
-            renderItem={({ item }) => (
-                <View style={{ width, height: 200 }}>
-                    <Image source={item.image} style={{ width: '100%', height: 200 }} />
-                </View>
-
-            )}
-            keyExtractor={(item) => item.id.toString()}
-            horizontal={true}
-            showsHorizontalScrollIndicator={false}
-        />
-    );
-};
 const Home = ({ navigation }) => {
     const dispatch = useDispatch();
     const products = useSelector((state) => state.product.products);
@@ -50,22 +18,6 @@ const Home = ({ navigation }) => {
         dispatch(fetchProducts());
     }, []);
 
-    const renderItem = ({ item }) => {
-        return (
-            <Pressable style={styles.productItem}
-                onPress={() => navigation.navigate(ROUTES.PRODUCT_DETAILS, { product: item })}
-            >
-                <Image source={{ uri: item.image }} style={{ width: 100, height: 100, borderRadius: 10 }} />
-                <Text>{item.title}</Text>
-                <View style={styles.productItemPriceContainer}>
-                    <Text>{`AED ${item.price}`}</Text>
-                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <Text>{`★${item.rating.rate}`}</Text>
-                    </View>
-                </View>
-            </Pressable>
-        );
-    };
 
     return (
         <ScreenView isLoading={loading} error={error}>
@@ -76,7 +28,7 @@ const Home = ({ navigation }) => {
                     <FlatList
                         numColumns={2}
                         data={products}
-                        renderItem={renderItem}
+                        renderItem={({ item }) => <ProductCard item={item} navigation={navigation} />}
                         keyExtractor={(item) => item.id.toString()}
                         style={{ width: '100%' }}
                         contentContainerStyle={{ padding: 10 }}
@@ -87,24 +39,4 @@ const Home = ({ navigation }) => {
     );
 };
 
-const styles = StyleSheet.create({
-    productItem: {
-        flex: 1,
-        borderWidth: 1,
-        borderColor: 'gray',
-        padding: 10,
-        margin: 5,
-        borderRadius: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#f0f0f0'
-    },
-    productItemPriceContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        marginTop: 10,
-        width: '100%'
-    }
-});
 export default Home;
