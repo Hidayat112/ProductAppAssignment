@@ -13,7 +13,7 @@ function ProductDetailsScreen({ navigation, route }) {
     const quantity = cartItems.find(item => item.id === product.id)?.quantity || 0;
     return (
         <View style={{ flex: 1 }}>
-            <Header navigation={navigation} title="" handleRightPress={() => navigation.navigate(ROUTES.CART)} />
+            <Header navigation={navigation} title="" isRight={false} />
             <ScrollView>
                 <Image
                     source={{ uri: product.image }}
@@ -34,7 +34,7 @@ function ProductDetailsScreen({ navigation, route }) {
                                 disabled={!isInCart}
                                 onPress={() => dispatch(removeFromCart(product))}
                             >
-                                <Text style={[styles.textStyle(true, 16, true, 'white')]}>Remove to cart</Text>
+                                <Text style={[styles.textStyle(true, 16, true, 'white')]}>Remove from cart</Text>
                             </Pressable>
                             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
                                 {

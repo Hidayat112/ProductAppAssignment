@@ -27,14 +27,13 @@ const productSlice  = createSlice({
 export const { addProducts, setError, setLoading } = productSlice.actions;  
 
 
-export const fetchProducts = () => async (dispatch, getState) => {
+export const fetchProducts = () => async (dispatch) => {
   dispatch(setLoading(true));
   try {
       const response = await fetchInterceptor(API_ENDPOINTS.PRODUCTS);
       const data = await response.json();
       dispatch(addProducts(data));
   } catch (error) {
-      console.log('error',error);
       dispatch(setError(error));  
   } finally {
       dispatch(setLoading(false));

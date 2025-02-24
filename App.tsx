@@ -10,19 +10,19 @@ import { ROUTES } from './src/utils/constants';
 import CartScreen from './src/screens/Cart';
 import CartDetailsScreen from './src/screens/CartDetails';
 import PlacedOrderScreen from './src/screens/PlacedOrder';
+import BottomTab from './src/navigation/BottomTab';
 const Stack = createNativeStackNavigator();
+
 
 function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name={ROUTES.HOME} component={Home} />
-          <Stack.Screen name={ROUTES.SEARCH} component={SearchScreen} />
-          <Stack.Screen name={ROUTES.PRODUCT_DETAILS} component={ProductDetailsScreen} />
-          <Stack.Screen name={ROUTES.CART} component={CartScreen} />
+          <Stack.Screen name={ROUTES.ROOT} component={BottomTab} />
           <Stack.Screen name={ROUTES.CART_DETAILS} component={CartDetailsScreen} />
           <Stack.Screen name={ROUTES.PLACED_ORDER} component={PlacedOrderScreen} />
+          <Stack.Screen name={ROUTES.SEARCH} component={SearchScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

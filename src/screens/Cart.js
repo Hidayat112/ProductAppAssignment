@@ -10,10 +10,9 @@ import { ROUTES } from '../utils/constants';
 function CartScreen({ navigation }) {
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart.cartItems);
-    console.log(cartItems);
     return (
         <View style={{ flex: 1 }}>
-            <Header navigation={navigation} title="Cart" isRight={false} />
+            <Header navigation={navigation} title="Cart" isRight={false} isLeft={false} />
             <View style={{ flex: 1, padding: 10 }}>
                 {
                     cartItems.length === 0 ? (

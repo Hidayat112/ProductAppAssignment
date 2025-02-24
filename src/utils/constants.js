@@ -4,10 +4,13 @@ const API_ENDPOINTS = {
     PRODUCTS: '/products',
 }
 const ROUTES = {
+    ROOT: 'Root',
     HOME: 'Home',
+    HOME_STACK: 'HomeStack',
     PRODUCT_DETAILS: 'ProductDetails',
     SEARCH: 'Search',
     CART: 'Cart',
+    CART_STACK: 'CartStack',
     CART_DETAILS: 'CartDetails',
     PLACED_ORDER: 'PlacedOrder',
 }
@@ -48,6 +51,8 @@ const Images = {
     BACK: require('../assets/back/back.png'),
     CART: require('../assets/cart/cart.png'),
     SEARCH: require('../assets/search/search.png'),
+    CHECK: require('../assets/lottie/success.json'),
+    HOME: require('../assets/home/home.png'),
 }
 
 export { API_URL, API_ENDPOINTS, ROUTES, Images };

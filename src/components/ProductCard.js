@@ -1,11 +1,10 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, Pressable } from 'react-native';
-import { ROUTES } from '../utils/constants';
 
-const ProductCard = ({ item,navigation}) => {
+const ProductCard = ({ item,handleProductPress}) => {
     return (
         <Pressable style={styles.productItem}
-            onPress={() => navigation.navigate(ROUTES.PRODUCT_DETAILS, { product: item })}
+            onPress={() => handleProductPress(item)}
         >
             <Image source={{ uri: item.image }} style={{ width: 100, height: 100, borderRadius: 10 }} />
             <Text>{item.title}</Text>

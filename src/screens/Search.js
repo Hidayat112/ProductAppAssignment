@@ -14,6 +14,17 @@ function SearchScreen({ navigation }) {
         setSearchText(text);
         setFilteredProducts(allProducts.filter(product => product.title.toLowerCase().includes(text.toLowerCase())));
     }
+    const handleProductPress = (item) => {
+        navigation.navigate(ROUTES.ROOT, {
+            screen: ROUTES.HOME_STACK,
+            params: {
+                screen: ROUTES.PRODUCT_DETAILS,
+                params: {
+                    product: item
+                }
+            }
+        });
+    }
     return (
         <View style={{ flex: 1, padding: 10 }}>
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
@@ -32,7 +43,7 @@ function SearchScreen({ navigation }) {
                         numColumns={2}
                         showsVerticalScrollIndicator={false}
                         data={filteredProducts.length > 0 ? filteredProducts : allProducts}
-                        renderItem={({ item }) => <ProductCard item={item} navigation={navigation} />}
+                        renderItem={({ item }) => <ProductCard item={item} handleProductPress={handleProductPress} />}
                         keyExtractor={(item) => item.id.toString()}
                     />
                 ) : (

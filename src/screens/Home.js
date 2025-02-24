@@ -18,17 +18,20 @@ const Home = ({ navigation }) => {
         dispatch(fetchProducts());
     }, []);
 
+    const handleProductPress = (item) => {
+        navigation.navigate(ROUTES.PRODUCT_DETAILS, { product: item });
+    }
 
     return (
         <ScreenView isLoading={loading} error={error}>
-            <Header isSearch={true} isLeft={false} navigation={navigation} title="Home" isRight={true} handleRightPress={() => navigation.navigate(ROUTES.CART)} />
+            <Header isSearch={true} isLeft={false} navigation={navigation} title="Home" isRight={false} />
             <ScrollView nestedScrollEnabled={true}>
                 <Banner />
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                     <FlatList
                         numColumns={2}
                         data={products}
-                        renderItem={({ item }) => <ProductCard item={item} navigation={navigation} />}
+                        renderItem={({ item }) => <ProductCard item={item} handleProductPress={handleProductPress} />}
                         keyExtractor={(item) => item.id.toString()}
                         style={{ width: '100%' }}
                         contentContainerStyle={{ padding: 10 }}

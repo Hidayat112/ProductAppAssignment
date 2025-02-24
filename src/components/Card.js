@@ -27,7 +27,7 @@ return (
                         style={[styles.button]}
                         onPress={handleRemoveFromCart}
                     >
-                        <Text style={[styles.textStyle(16, true, 'white')]}>Remove to cart</Text>
+                        <Text style={[styles.textStyle(16, true, 'white')]}>Remove from cart</Text>
                     </Pressable>
                 <Quantity
                     quantity={quantity}
