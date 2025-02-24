@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet, Pressable, ScrollView } from 'react-nati
 import Header from '../components/Header';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, decrementQuantity, incrementQuantity, removeFromCart } from '../state/slices/cartSlices';
-import { ROUTES } from '../utils/constants';
+import { STRINGS } from '../utils/constants';
 import Quantity from '../components/Quantity';
 function ProductDetailsScreen({ navigation, route }) {
     const dispatch = useDispatch();
@@ -34,13 +34,13 @@ function ProductDetailsScreen({ navigation, route }) {
                                 disabled={!isInCart}
                                 onPress={() => dispatch(removeFromCart(product))}
                             >
-                                <Text style={[styles.textStyle(true, 16, true, 'white')]}>Remove from cart</Text>
+                                <Text style={[styles.textStyle(true, 16, true, 'white')]}>{STRINGS.REMOVE_FROM_CART}</Text>
                             </Pressable>
                             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
                                 {
                                     quantity === 0 ? (
                                         <Pressable style={[styles.button]} onPress={() => dispatch(addToCart(product))}>
-                                            <Text style={styles.textStyle(true, 16, true, 'white')}>Add to Cart</Text>
+                                            <Text style={styles.textStyle(true, 16, true, 'white')}>{STRINGS.ADD_TO_CART}</Text>
                                         </Pressable>
                                     ) : (
                                             <Quantity

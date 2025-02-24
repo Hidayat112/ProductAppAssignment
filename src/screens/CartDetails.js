@@ -2,20 +2,21 @@ import { View, Text, StyleSheet, FlatList, Image, Pressable, Switch } from 'reac
 import Header from '../components/Header';
 import { useSelector } from 'react-redux';
 import { getItemPrice, getTotalPrice } from '../utils/commonFunctions';
-import { PAYMENT_METHODS, ROUTES } from '../utils/constants';
+import { PAYMENT_METHODS, ROUTES, STRINGS } from '../utils/constants';
 import { useState } from 'react';
+
 const CartSummary = ({ cartItem }) => {
     const summaryList = [
         {
-            title: 'Price',
+            title: STRINGS.PRICE,
             value: `AED ${cartItem.price}`,
         },
         {
-            title: 'Quantity',
+            title: STRINGS.QUANTITY,
             value: `X${cartItem.quantity}`,
         },
         {
-            title: 'Subtotal',
+            title: STRINGS.SUBTOTAL,
             value: `AED ${getItemPrice(cartItem.price, cartItem.quantity)}`,
         }
     ]
@@ -40,8 +41,6 @@ const CartSummary = ({ cartItem }) => {
                     }
 
                 </View>
-
-
             </View>
         </View>
     )
@@ -50,7 +49,7 @@ const CartSummary = ({ cartItem }) => {
 
 const PaymentSelection = () => {
     const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(0);
-    
+
     return (
         <View style={styles.paymentSelectionContainer}>
             {
@@ -74,11 +73,11 @@ function CartDetailsScreen({ navigation }) {
     const cartItems = useSelector((state) => state.cart.cartItems);
     return (
         <View style={{ flex: 1 }}>
-            <Header navigation={navigation} title="Cart Details" isRight={false} />
+            <Header navigation={navigation} title={STRINGS.CART_DETAILS} isRight={false} />
             {
                 cartItems.length === 0 ? (
-                    <View>
-                        <Text>No items in cart</Text>
+                    <View style={styles.noItemsContainer}>
+                        <Text style={styles.textStyle(18, true, 'black')}>{STRINGS.NO_ITEMS_IN_CART}</Text>
                     </View>
                 ) : (
                     <View style={{ flex: 1, padding: 10 }}>
@@ -92,11 +91,11 @@ function CartDetailsScreen({ navigation }) {
                         // ListFooterComponentStyle={{ height: 60 }}
                         />
                         <View style={styles.totalPriceContainer}>
-                            <Text style={styles.textStyle(16, true, 'black')}>Total</Text>
+                            <Text style={styles.textStyle(16, true, 'black')}>{STRINGS.TOTAL}</Text>
                             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
                                 <Text style={styles.textStyle(16, true, 'black')}>{`AED ${getTotalPrice(cartItems)}`}</Text>
                                 <Pressable style={styles.checkoutButton} onPress={() => { navigation.navigate(ROUTES.PLACED_ORDER) }}>
-                                    <Text style={styles.textStyle(16, true, 'white')}>Place Order</Text>
+                                    <Text style={styles.textStyle(16, true, 'white')}>{STRINGS.PLACE_ORDER}</Text>
                                 </Pressable>
                             </View>
                         </View>
@@ -108,6 +107,11 @@ function CartDetailsScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+    noItemsContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     paymentSelectionContainer: {
         padding: 10,
         borderWidth: 1,

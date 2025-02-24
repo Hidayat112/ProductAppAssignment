@@ -3,7 +3,8 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { useDispatch } from 'react-redux';
 import LottieView from 'lottie-react-native';
 import { removeAllCartItems } from '../state/slices/cartSlices';
-import { Images, ROUTES } from '../utils/constants';
+import { Images, ROUTES, STRINGS } from '../utils/constants';
+
 export default function PlacedOrderScreen({ navigation }) {
     const dispatch = useDispatch();
     useEffect(() => {
@@ -16,18 +17,19 @@ export default function PlacedOrderScreen({ navigation }) {
                 autoPlay
                 style={styles.check}
             />
-            <Text style={styles.text}>Order Placed Successfully</Text>
+            <Text style={styles.text}>{STRINGS.ORDER_PLACED_SUCCESSFULLY}</Text>
             <Pressable style={styles.button} onPress={() => {
                 navigation.reset({
                     index: 0,
                     routes: [{ name: ROUTES.ROOT }],
                   });
             }}>
-                <Text style={styles.buttonText}>Return to Home</Text>
+                <Text style={styles.buttonText}>{STRINGS.RETURN_TO_HOME}</Text>
             </Pressable>
         </View>
     )
 }
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,

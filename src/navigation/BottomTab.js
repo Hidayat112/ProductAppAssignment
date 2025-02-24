@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { ROUTES } from '../utils/constants';
+import { ROUTES, STRINGS } from '../utils/constants';
 import Home from '../screens/Home';
 import CartScreen from '../screens/Cart';
 import { View, Text, StyleSheet, Pressable, Image } from 'react-native';
@@ -35,12 +35,14 @@ const BottomTab = () => {
             <Tab.Screen name={ROUTES.HOME_STACK} component={HomeStackNavigator} options={{
                 tabBarIcon: ({ focused, color }) => (
                     <Image source={Images.HOME} style={[styles.tabBarItemImage, { ...(focused ? { tintColor: color } : {}) }]} />
-                )
+                ),
+                tabBarLabel: STRINGS.HOME,
             }} />
             <Tab.Screen
                 name={ROUTES.CART_STACK}
                 component={CartStackNavigator}
                 options={{
+                    tabBarLabel: STRINGS.CART,
                     tabBarIcon: ({ focused, color }) => (
                         <Image source={Images.CART} style={[styles.tabBarItemImage, { ...(focused ? { tintColor: color } : {}) }]} />
                     ),

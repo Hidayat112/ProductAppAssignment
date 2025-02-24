@@ -3,7 +3,7 @@ import { View, Text, FlatList, Image, Pressable, StyleSheet, ScrollView, Dimensi
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../state/slices/productSlices';
 import ScreenView from '../components/ScreenView';
-import { ROUTES, BANNER_DATA } from '../utils/constants';
+import { ROUTES, BANNER_DATA, STRINGS } from '../utils/constants';
 import Header from '../components/Header';
 import ProductCard from '../components/ProductCard';
 import Banner from '../components/Banner';
@@ -24,7 +24,7 @@ const Home = ({ navigation }) => {
 
     return (
         <ScreenView isLoading={loading} error={error}>
-            <Header isSearch={true} isLeft={false} navigation={navigation} title="Home" isRight={false} />
+            <Header isSearch={true} isLeft={false} navigation={navigation} title={STRINGS.HOME} isRight={false} />
             <ScrollView nestedScrollEnabled={true}>
                 <Banner />
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>

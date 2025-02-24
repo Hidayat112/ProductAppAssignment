@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
 import { getItemPrice } from '../utils/commonFunctions';
 import Quantity from './Quantity';
+import { STRINGS } from '../utils/constants';
 const Card = ({
     title,
     description,
@@ -21,13 +22,13 @@ return (
                 </View>
                 <Image source={{ uri: image }} style={styles.image} />
             </View>
-            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+            <View style={styles.cardFooter}>
                 <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
                     <Pressable
                         style={[styles.button]}
                         onPress={handleRemoveFromCart}
                     >
-                        <Text style={[styles.textStyle(16, true, 'white')]}>Remove from cart</Text>
+                        <Text style={[styles.textStyle(16, true, 'white')]}>{STRINGS.REMOVE_FROM_CART}</Text>
                     </Pressable>
                 <Quantity
                     quantity={quantity}
@@ -50,6 +51,11 @@ const styles = StyleSheet.create({
         fontSize,
         fontWeight,
     }),
+    cardFooter: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
     cardContainer: {
         padding: 10,
         borderWidth: 1,
