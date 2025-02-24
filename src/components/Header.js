@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, Pressable, StyleSheet, TextInput } from 'react-native';
-import { ROUTES, Images } from '../utils/constants';
+import { ROUTES, Images, STRINGS } from '../utils/constants';
 
 const Header = ({
     navigation,
@@ -27,7 +27,7 @@ const Header = ({
                         width: 20,
                         height: 20
                     }} />
-                    <Text>Search</Text></Pressable>}
+                    <Text>{STRINGS.SEARCH}</Text></Pressable>}
             </View>
 
             {isRight &&

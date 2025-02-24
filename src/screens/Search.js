@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, Image, FlatList, Pressable } from 'react-native';
-import { Images, ROUTES } from '../utils/constants';
+import { Images, ROUTES, STRINGS } from '../utils/constants';
 import { useSelector } from 'react-redux';
 import ProductCard from '../components/ProductCard';
 function SearchScreen({ navigation }) {
@@ -33,7 +33,7 @@ function SearchScreen({ navigation }) {
                 </Pressable>
                 <View style={styles.textInputContainer}>
                     <Image source={Images.SEARCH} style={styles.searchIcon} />
-                    <TextInput placeholder="Search" style={styles.textInput} value={searchText} onChangeText={handleSearch} />
+                    <TextInput placeholder={STRINGS.SEARCH} style={styles.textInput} value={searchText} onChangeText={handleSearch} />
                 </View>
             </View>
 
@@ -48,7 +48,7 @@ function SearchScreen({ navigation }) {
                     />
                 ) : (
                     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                        <Text>No products found</Text>
+                        <Text style={styles.textStyle(18, true, 'black')}>{STRINGS.NO_PRODUCTS_FOUND}</Text>
                     </View>
 
                 )

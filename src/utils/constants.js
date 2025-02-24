@@ -14,32 +14,16 @@ const ROUTES = {
     CART_DETAILS: 'CartDetails',
     PLACED_ORDER: 'PlacedOrder',
 }
-
-
-export const BANNER_DATA = [
-    {
-        id: 0,
-        image: require('../assets/banner/first.jpg'),
-    },
-    {
-        id: 1,
-        image: require('../assets/banner/second.jpg'),
-    },
-    {
-        id: 2,
-        image: require('../assets/banner/third.jpg'),
-    },
-    {
-        id: 3,
-        image: require('../assets/banner/fourth.jpg'),
-    },
-]
 const Images = {
     BACK: require('../assets/back/back.png'),
     CART: require('../assets/cart/cart.png'),
     SEARCH: require('../assets/search/search.png'),
     CHECK: require('../assets/lottie/success.json'),
     HOME: require('../assets/home/home.png'),
+    BANNER1: require('../assets/banner/first.jpg'),
+    BANNER2: require('../assets/banner/second.jpg'),
+    BANNER3: require('../assets/banner/third.jpg'),
+    BANNER4: require('../assets/banner/fourth.jpg'),
 }
 
 const STRINGS = {
@@ -64,7 +48,27 @@ const STRINGS = {
     UPI: 'UPI',
     ORDER_PLACED_SUCCESSFULLY: 'Order Placed Successfully',
     RETURN_TO_HOME: 'Return to Home',
+    NO_PRODUCTS_FOUND: 'No products found',
 }
+
+export const BANNER_DATA = [
+    {
+        id: 0,
+        image: Images.BANNER1,
+    },
+    {
+        id: 1,
+        image: Images.BANNER2,
+    },
+    {
+        id: 2,
+        image: Images.BANNER3,
+    },
+    {
+        id: 3,
+        image: Images.BANNER4,
+    },
+]
 
 export const PAYMENT_METHODS = [
     {
@@ -80,4 +84,7 @@ export const PAYMENT_METHODS = [
         title: STRINGS.UPI,
     },
 ]
+
+
+
 export { API_URL, API_ENDPOINTS, ROUTES, Images, STRINGS };
