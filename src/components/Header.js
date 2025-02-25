@@ -20,7 +20,10 @@ const Header = ({
                 </Pressable>}
                 {title && <Text style={styles.title}>{title}</Text>}
                 {isSearch && <Pressable style={styles.searchView} onPress={() => navigation.navigate(ROUTES.SEARCH)}>
-                    <Image source={Images.SEARCH} style={styles.icon} />
+                    <Image source={Images.SEARCH} style={{
+                        height: 20,
+                        width: 20
+                    }} />
                     <Text>{STRINGS.SEARCH}</Text></Pressable>}
             </View>
 
