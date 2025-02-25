@@ -13,43 +13,37 @@ const Header = ({
     return (
         <View style={styles.header}>
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
-            {isLeft && <Pressable
-                onPress={() => navigation.goBack()}
-            >
-                <Image source={Images.BACK} style={{
-                    width: 30,
-                    height: 30
-                }} />
+                {isLeft && <Pressable
+                    onPress={() => navigation.goBack()}
+                >
+                    <Image source={Images.BACK} style={styles.icon} />
                 </Pressable>}
                 {title && <Text style={styles.title}>{title}</Text>}
                 {isSearch && <Pressable style={styles.searchView} onPress={() => navigation.navigate(ROUTES.SEARCH)}>
-                    <Image source={Images.SEARCH} style={{
-                        width: 20,
-                        height: 20
-                    }} />
+                    <Image source={Images.SEARCH} style={styles.icon} />
                     <Text>{STRINGS.SEARCH}</Text></Pressable>}
             </View>
 
             {isRight &&
                 <Pressable
                     onPress={() => handleRightPress()}
-
                 >
-                <Image source={Images.CART} style={{
-                    width: 30,
-                    height: 30
-                }} />
-            </Pressable>}
+                    <Image source={Images.CART} style={styles.icon} />
+                </Pressable>}
         </View>
     );
 }
 
 const styles = StyleSheet.create({
+    icon: {
+        width: 30,
+        height: 30
+    },
     searchView: {
         borderWidth: 1,
         borderColor: 'gray',
         borderRadius: 20,
-        width:100,
+        width: 100,
         paddingVertical: 5,
         alignItems: 'center',
         justifyContent: 'center',

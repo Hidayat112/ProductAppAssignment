@@ -19,6 +19,7 @@ const Images = {
     CART: require('../assets/cart/cart.png'),
     SEARCH: require('../assets/search/search.png'),
     CHECK: require('../assets/lottie/success.json'),
+    ERROR: require('../assets/lottie/error.json'),
     HOME: require('../assets/home/home.png'),
     BANNER1: require('../assets/banner/first.jpg'),
     BANNER2: require('../assets/banner/second.jpg'),
@@ -49,6 +50,9 @@ const STRINGS = {
     ORDER_PLACED_SUCCESSFULLY: 'Order Placed Successfully',
     RETURN_TO_HOME: 'Return to Home',
     NO_PRODUCTS_FOUND: 'No products found',
+    ERROR: 'Error',
+    SOMETHING_WENT_WRONG: 'Something went wrong!',
+    TRY_AGAIN: 'Try Again',
 }
 
 export const BANNER_DATA = [

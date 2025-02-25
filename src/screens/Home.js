@@ -23,7 +23,7 @@ const Home = ({ navigation }) => {
     }
 
     return (
-        <ScreenView isLoading={loading} error={error}>
+        <ScreenView isLoading={loading} error={error} refetch={() => dispatch(fetchProducts())}>
             <Header isSearch={true} isLeft={false} navigation={navigation} title={STRINGS.HOME} isRight={false} />
             <ScrollView nestedScrollEnabled={true}>
                 <Banner />

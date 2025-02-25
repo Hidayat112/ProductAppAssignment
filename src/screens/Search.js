@@ -47,16 +47,20 @@ function SearchScreen({ navigation }) {
                         keyExtractor={(item) => item.id.toString()}
                     />
                 ) : (
-                    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                    <View style={styles.container}>
                         <Text style={styles.textStyle(18, true, 'black')}>{STRINGS.NO_PRODUCTS_FOUND}</Text>
                     </View>
-
                 )
             }
         </View>
     );
 }
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
     textInputContainer: {
         width: "90%",
         flexDirection: 'row',
