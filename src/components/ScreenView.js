@@ -5,7 +5,7 @@ import { Images, STRINGS } from '../utils/constants';
 
 const ErrorView = ({ refetch = () => { } }) => {
     return <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <LottieView source={Images.ERROR} autoPlay loop style={{ width: 200, height: 200 }} />
+        <LottieView source={Images.ERROR} autoPlay loop style={styles.errorAnimation} />
         <Text style={{ fontSize: 20, fontWeight: 'bold' }}>{STRINGS.SOMETHING_WENT_WRONG}</Text>
         <Pressable onPress={() => {
             refetch();
@@ -39,6 +39,10 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 5,
         marginTop: 10,
+    },
+    errorAnimation: {
+        width: 200,
+        height: 200,
     }
 });
 export default ScreenView;
