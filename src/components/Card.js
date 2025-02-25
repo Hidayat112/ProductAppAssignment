@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
 import { getItemPrice } from '../utils/commonFunctions';
 import Quantity from './Quantity';
-import { STRINGS } from '../utils/constants';
+import { STRINGS, COLORS } from '../utils/constants';
 const Card = ({
     title,
     description,
@@ -28,7 +28,7 @@ return (
                         style={[styles.button]}
                         onPress={handleRemoveFromCart}
                     >
-                        <Text style={[styles.textStyle(16, true, 'white')]}>{STRINGS.REMOVE_FROM_CART}</Text>
+                        <Text style={[styles.textStyle(16, true, COLORS.WHITE)]}>{STRINGS.REMOVE_FROM_CART}</Text>
                     </Pressable>
                 <Quantity
                     quantity={quantity}
@@ -36,7 +36,7 @@ return (
                     onIncrement={handleIncrementQuantity} />
                 </View>
                 <View>
-                    <Text style={styles.textStyle(16, true, 'black')}>{`AED ${getItemPrice(price, quantity)}`}</Text>
+                    <Text style={styles.textStyle(16, true, COLORS.BLACK)}>{`AED ${getItemPrice(price, quantity)}`}</Text>
                 </View>
             </View>
 
@@ -46,7 +46,7 @@ return (
 };
 
 const styles = StyleSheet.create({
-    textStyle: (fontSize, fontWeight, color) => ({
+    textStyle: (fontSize, fontWeight, color = COLORS.BLACK  ) => ({
         color,
         fontSize,
         fontWeight,
@@ -59,10 +59,10 @@ const styles = StyleSheet.create({
     cardContainer: {
         padding: 10,
         borderWidth: 1,
-        borderColor: 'gray',
+        borderColor: COLORS.GRAY,
         marginBottom: 10,
         borderRadius: 5,
-        backgroundColor: 'white',
+        backgroundColor: COLORS.WHITE,
         justifyContent: 'space-between',
     },
     card: {
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
         height: 100,
     },
     button: {
-        backgroundColor: '#5160D2',
+        backgroundColor: COLORS.SECONDARY,
         padding: 10,
         borderRadius: 5,
     },

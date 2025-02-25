@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet, Pressable, ScrollView } from 'react-nati
 import Header from '../components/Header';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, decrementQuantity, incrementQuantity, removeFromCart } from '../state/slices/cartSlices';
-import { STRINGS } from '../utils/constants';
+import { COLORS, STRINGS } from '../utils/constants';
 import Quantity from '../components/Quantity';
 function ProductDetailsScreen({ navigation, route }) {
     const dispatch = useDispatch();
@@ -30,7 +30,7 @@ function ProductDetailsScreen({ navigation, route }) {
                         </View>
                         <View style={styles.buttonContainer}>
                             <Pressable
-                                style={[styles.button, !isInCart && { backgroundColor: 'lightgray' }]}
+                                style={[styles.button, !isInCart && { backgroundColor: COLORS.GRAY }]}
                                 disabled={!isInCart}
                                 onPress={() => dispatch(removeFromCart(product))}
                             >
@@ -62,7 +62,7 @@ function ProductDetailsScreen({ navigation, route }) {
 }
 const styles = StyleSheet.create({
    
-    textStyle: (isBold, fontSize, isCenter, color = 'black') => ({
+    textStyle: (isBold, fontSize, isCenter, color = COLORS.BLACK) => ({
         fontSize: fontSize,
         fontWeight: isBold ? 'bold' : 'normal',
         textAlign: isCenter ? 'center' : 'left',
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#5160D2',
+        backgroundColor: COLORS.SECONDARY,
         padding: 10,
         borderRadius: 5
     },

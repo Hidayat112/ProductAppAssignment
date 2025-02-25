@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { useDispatch } from 'react-redux';
 import LottieView from 'lottie-react-native';
 import { removeAllCartItems } from '../state/slices/cartSlices';
-import { Images, ROUTES, STRINGS } from '../utils/constants';
+import { COLORS, Images, ROUTES, STRINGS } from '../utils/constants';
 
 export default function PlacedOrderScreen({ navigation }) {
     const dispatch = useDispatch();
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     },
     button: {
         borderWidth: 1,
-        borderColor: 'black',
+        borderColor: COLORS.BLACK,
         padding: 10,
         borderRadius: 5,
         marginTop: 10,

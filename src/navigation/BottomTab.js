@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { ROUTES, STRINGS } from '../utils/constants';
+import { COLORS, ROUTES, STRINGS } from '../utils/constants';
 import Home from '../screens/Home';
 import CartScreen from '../screens/Cart';
 import { View, Text, StyleSheet, Pressable, Image } from 'react-native';
@@ -45,12 +45,12 @@ const BottomTab = () => {
                     tabBarLabel: STRINGS.CART,
                     tabBarIcon: ({ focused, color }) => (
                         <Image source={Images.CART} style={[styles.tabBarItemImage, { ...(focused ? { tintColor: color } : {}) }]} />
-                    ),
+                    ),  
                     ...(cartItems && cartItems.length > 0 ? {
                         tabBarBadge: cartItems && cartItems.length,
                         tabBarBadgeStyle: {
-                            backgroundColor: 'red',
-                            color: 'white',
+                            backgroundColor: COLORS.RED,
+                            color: COLORS.WHITE,
                             fontSize: 10,
                             fontWeight: 'bold',
                         }
@@ -62,7 +62,7 @@ const BottomTab = () => {
 }
 const styles = StyleSheet.create({
     tabBar: {
-        backgroundColor: 'white',
+        backgroundColor: COLORS.WHITE,
         elevation: 5,
         flexDirection: 'row',
         justifyContent: 'space-around',

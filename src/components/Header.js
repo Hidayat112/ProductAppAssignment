@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, Pressable, StyleSheet, TextInput } from 'react-native';
-import { ROUTES, Images, STRINGS } from '../utils/constants';
+import { ROUTES, Images, STRINGS, COLORS } from '../utils/constants';
 
 const Header = ({
     navigation,
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     },
     searchView: {
         borderWidth: 1,
-        borderColor: 'gray',
+        borderColor: COLORS.GRAY,
         borderRadius: 20,
         width: 100,
         paddingVertical: 5,
@@ -55,9 +55,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         padding: 10,
-        backgroundColor: 'white',
+        backgroundColor: COLORS.WHITE,
         borderBottomWidth: 1,
-        borderBottomColor: 'gray'
+        borderBottomColor: COLORS.GRAY
     },
     title: {
         fontSize: 20,

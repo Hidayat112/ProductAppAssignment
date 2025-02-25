@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, FlatList, Image, Pressable, Switch } from 'reac
 import Header from '../components/Header';
 import { useSelector } from 'react-redux';
 import { getItemPrice, getTotalPrice } from '../utils/commonFunctions';
-import { PAYMENT_METHODS, ROUTES, STRINGS } from '../utils/constants';
+import { COLORS, PAYMENT_METHODS, ROUTES, STRINGS } from '../utils/constants';
 import { useState } from 'react';
 
 const CartSummary = ({ cartItem }) => {
@@ -24,8 +24,8 @@ const CartSummary = ({ cartItem }) => {
         <View style={styles.cartSummaryContainer}>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                 <View style={{ width: '70%' }}>
-                    <Text style={styles.textStyle(16, 'bold', 'black')}>{cartItem.title}</Text>
-                    <Text style={styles.textStyle(16, '400', 'black')}>{cartItem.description}</Text>
+                    <Text style={styles.textStyle(16, 'bold', COLORS.BLACK)}>{cartItem.title}</Text>
+                    <Text style={styles.textStyle(16, '400', COLORS.BLACK)}>{cartItem.description}</Text>
                 </View>
                 <Image source={{ uri: cartItem.image }} style={styles.image} />
             </View>
@@ -34,8 +34,8 @@ const CartSummary = ({ cartItem }) => {
                     {
                         summaryList.map((item, index) => (
                             <View key={index} style={styles.summaryItem}>
-                                <Text style={styles.textStyle(16, '400', 'black')}>{item.title}</Text>
-                                <Text style={styles.textStyle(16, '400', 'black')}>{item.value}</Text>
+                                <Text style={styles.textStyle(16, '400', COLORS.BLACK)}>{item.title}</Text>
+                                <Text style={styles.textStyle(16, '400', COLORS.BLACK)}>{item.value}</Text>
                             </View>
                         ))
                     }
@@ -77,7 +77,7 @@ function CartDetailsScreen({ navigation }) {
             {
                 cartItems.length === 0 ? (
                     <View style={styles.noItemsContainer}>
-                        <Text style={styles.textStyle(18, true, 'black')}>{STRINGS.NO_ITEMS_IN_CART}</Text>
+                        <Text style={styles.textStyle(18, true, COLORS.BLACK)}>{STRINGS.NO_ITEMS_IN_CART}</Text>
                     </View>
                 ) : (
                     <View style={{ flex: 1, padding: 10 }}>
@@ -91,11 +91,11 @@ function CartDetailsScreen({ navigation }) {
                         // ListFooterComponentStyle={{ height: 60 }}
                         />
                         <View style={styles.totalPriceContainer}>
-                            <Text style={styles.textStyle(16, true, 'black')}>{STRINGS.TOTAL}</Text>
+                            <Text style={styles.textStyle(16, true, COLORS.BLACK)}>{STRINGS.TOTAL}</Text>
                             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
-                                <Text style={styles.textStyle(16, true, 'black')}>{`AED ${getTotalPrice(cartItems)}`}</Text>
+                                <Text style={styles.textStyle(16, true, COLORS.BLACK)}>{`AED ${getTotalPrice(cartItems)}`}</Text>
                                 <Pressable style={styles.checkoutButton} onPress={() => { navigation.navigate(ROUTES.PLACED_ORDER) }}>
-                                    <Text style={styles.textStyle(16, true, 'white')}>{STRINGS.PLACE_ORDER}</Text>
+                                    <Text style={styles.textStyle(16, true, COLORS.WHITE)}>{STRINGS.PLACE_ORDER}</Text>
                                 </Pressable>
                             </View>
                         </View>
@@ -115,14 +115,14 @@ const styles = StyleSheet.create({
     paymentSelectionContainer: {
         padding: 10,
         borderWidth: 1,
-        borderBottomColor: 'gray',
+        borderBottomColor: COLORS.GRAY,
         borderRadius: 5,
         marginBottom: 10,
     },
     cartSummaryContainer: {
         padding: 10,
         borderWidth: 1,
-        borderBottomColor: 'gray',
+        borderBottomColor: COLORS.GRAY,
         borderRadius: 5,
         marginBottom: 10,
     },
@@ -148,10 +148,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         borderRadius: 5,
-        backgroundColor: 'white',
+        backgroundColor: COLORS.WHITE,
     },
     checkoutButton: {
-        backgroundColor: 'green',
+        backgroundColor: COLORS.GREEN,
         padding: 10,
         borderRadius: 5,
     }

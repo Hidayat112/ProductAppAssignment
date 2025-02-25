@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, Image, FlatList, Pressable } from 'react-native';
-import { Images, ROUTES, STRINGS } from '../utils/constants';
+import { COLORS, Images, ROUTES, STRINGS } from '../utils/constants';
 import { useSelector } from 'react-redux';
 import ProductCard from '../components/ProductCard';
 function SearchScreen({ navigation }) {
@@ -48,7 +48,7 @@ function SearchScreen({ navigation }) {
                     />
                 ) : (
                     <View style={styles.container}>
-                        <Text style={styles.textStyle(18, true, 'black')}>{STRINGS.NO_PRODUCTS_FOUND}</Text>
+                        <Text style={styles.textStyle(18, true, COLORS.BLACK)}>{STRINGS.NO_PRODUCTS_FOUND}</Text>
                     </View>
                 )
             }
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
         gap: 5,
         paddingHorizontal: 10,
         borderWidth: 1,
-        borderColor: 'gray',
+        borderColor: COLORS.GRAY,
         borderRadius: 20,
     },
     textInput: {
@@ -81,13 +81,13 @@ const styles = StyleSheet.create({
     productItem: {
         flex: 1,
         borderWidth: 1,
-        borderColor: 'gray',
+        borderColor: COLORS.GRAY,
         padding: 10,
         margin: 5,
         borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#f0f0f0'
+        backgroundColor: COLORS.LIGHT_GRAY
     },
     productItemPriceContainer: {
         flexDirection: 'row',

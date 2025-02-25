@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Card from '../components/Card';
 import { decrementQuantity, incrementQuantity, removeFromCart } from '../state/slices/cartSlices';
 import { getTotalPrice } from '../utils/commonFunctions';
-import { ROUTES, STRINGS } from '../utils/constants';
+import { COLORS, ROUTES, STRINGS } from '../utils/constants';
 
 function CartScreen({ navigation }) {
     const dispatch = useDispatch();
@@ -17,7 +17,7 @@ function CartScreen({ navigation }) {
                 {
                     cartItems.length === 0 ? (
                         <View style={styles.noItemsContainer}>
-                            <Text style={styles.textStyle(18, true, 'black')}>{STRINGS.NO_ITEMS_IN_CART}</Text>
+                            <Text style={styles.textStyle(18, true, COLORS.BLACK)}>{STRINGS.NO_ITEMS_IN_CART}</Text>
                         </View>
                     ) : (
                         <View style={{ flex: 1 }}>
@@ -40,11 +40,11 @@ function CartScreen({ navigation }) {
                                 )}
                             />
                             <View style={styles.totalPriceContainer}>
-                                <Text style={styles.textStyle(16, true, 'black')}>{STRINGS.TOTAL}</Text>
+                                <Text style={styles.textStyle(16, true, COLORS.BLACK)}>{STRINGS.TOTAL}</Text>
                                 <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
-                                    <Text style={styles.textStyle(16, true, 'black')}>{`AED ${getTotalPrice(cartItems)}`}</Text>
+                                    <Text style={styles.textStyle(16, true, COLORS.BLACK)}>{`AED ${getTotalPrice(cartItems)}`}</Text>
                                     <Pressable style={styles.checkoutButton} onPress={() => navigation.navigate(ROUTES.CART_DETAILS)}>
-                                        <Text style={styles.textStyle(16, true, 'white')}>{STRINGS.CHECKOUT}</Text>
+                                        <Text style={styles.textStyle(16, true, COLORS.WHITE)}>{STRINGS.CHECKOUT}</Text>
                                     </Pressable>
                                 </View>
                             </View>
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     checkoutButton: {
-        backgroundColor: 'green',
+        backgroundColor: COLORS.GREEN,
         paddingVertical: 10,
         paddingHorizontal: 20,
         borderRadius: 10,
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        backgroundColor: 'white',
+        backgroundColor: COLORS.WHITE,
         paddingVertical: 10,
         paddingHorizontal: 20,
         borderRadius: 10,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, Pressable } from 'react-native';
-
+import { COLORS } from '../utils/constants';
 const ProductCard = ({ item,handleProductPress}) => {
     return (
         <Pressable style={styles.productItem}
@@ -22,13 +22,13 @@ const styles = StyleSheet.create({
     productItem: {
         flex: 1,
         borderWidth: 1,
-        borderColor: 'gray',
+        borderColor: COLORS.GRAY,
         padding: 10,
         margin: 5,
         borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#f0f0f0'
+        backgroundColor: COLORS.LIGHT_GRAY
     },
     productItemPriceContainer: {
         flexDirection: 'row',

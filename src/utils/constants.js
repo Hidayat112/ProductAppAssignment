@@ -55,6 +55,25 @@ const STRINGS = {
     TRY_AGAIN: 'Try Again',
 }
 
+const COLORS = {
+    PRIMARY: '#0000ff',
+    BLACK: '#000000',
+    GRAY: '#808080',
+    SECONDARY: '#5160D2',
+    WHITE: '#ffffff',
+    LIGHT_GRAY: '#f0f0f0',
+    LIGHT_GRAY_2: '#f5f5f5',
+    LIGHT_GRAY_3: '#f9f9f9',
+    LIGHT_GRAY_4: '#fafafa',
+    LIGHT_GRAY_5: '#fbfbfb',
+    LIGHT_GRAY_6: '#fcfcfc',
+    LIGHT_GRAY_7: '#fdfdfd',
+    LIGHT_GRAY_8: '#fefefe',
+    LIGHT_GRAY_9: '#f0f0f0',
+    GREEN: 'green',
+    RED: 'red',
+}
+
 export const BANNER_DATA = [
     {
         id: 0,
@@ -91,4 +110,4 @@ export const PAYMENT_METHODS = [
 
 
 
-export { API_URL, API_ENDPOINTS, ROUTES, Images, STRINGS };
+export { API_URL, API_ENDPOINTS, ROUTES, Images, STRINGS, COLORS };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, ActivityIndicator, StyleSheet, Pressable } from 'react-native';
 import LottieView from 'lottie-react-native';
-import { Images, STRINGS } from '../utils/constants';
+import { COLORS, Images, STRINGS } from '../utils/constants';
 
 const ErrorView = ({ refetch = () => { } }) => {
     return <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -19,7 +19,7 @@ const ErrorView = ({ refetch = () => { } }) => {
 
 const ScreenView = ({ isLoading, error, children, refetch = () => { } }) => {
     if (isLoading) {
-        return <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}><ActivityIndicator size="large" color="#0000ff" /></View>;
+        return <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}><ActivityIndicator size="large" color={COLORS.PRIMARY} /></View>;
     }
     if (error) {
         return <ErrorView refetch={refetch} />;
@@ -29,13 +29,13 @@ const ScreenView = ({ isLoading, error, children, refetch = () => { } }) => {
 
 const styles = StyleSheet.create({
     tryAgainButtonText: {
-        color: '#0000ff',
+        color: COLORS.PRIMARY,
         fontSize: 16,
         fontWeight: 'bold',
     },
     tryAgainButton: {
         borderWidth: 1,
-        borderColor: '#0000ff',
+        borderColor: COLORS.PRIMARY,
         padding: 10,
         borderRadius: 5,
         marginTop: 10,
